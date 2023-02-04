@@ -38,17 +38,15 @@
 
 <h2>ERD Diagram</h2>
 
-![erd](https://user-images.githubusercontent.com/114105942/216730644-c5b12f26-1aa1-469d-a3fb-27d982e16a16.png)
+![erd](https://user-images.githubusercontent.com/114105942/216780797-155e2b4f-819a-4ca1-a90e-725ac6af9af0.png)
 
 
 
 
-<h2> WireFrames </h2>
 
+<h2>Video Tutorial for the website</h2>
 
-![wiree](https://user-images.githubusercontent.com/114105942/216730225-3bd9308b-dc29-4645-b1c0-3c17129be784.png)
-
-
+https://user-images.githubusercontent.com/114105942/216780402-1ae04c8c-fbca-4fc1-a623-ce49e30effa3.mp4
 
 <h2> || HOW TO RUN THE PROJECT||</h2>
 <ul>
