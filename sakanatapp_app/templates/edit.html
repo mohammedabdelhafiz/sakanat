@@ -1,0 +1,63 @@
+{%extends 'base.html' %}
+{%load static%}
+{%block body%}
+<script type="text/javascript">
+    function PreviewImage() 
+    {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+    
+        oFReader.onload = function (oFREvent) 
+        {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    };
+    
+</script>
+<div class="w3-container" style="margin-top:1%; margin-left: 10%; margin-right: 10%; margin-bottom: 1%;">
+    <h2 style="text-align: center;"><b>Update Apartment </b></h2>
+
+
+     {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+            <strong>{{ message }}</strong> 
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+
+    <br>
+    <div id = "id1">
+        <form action="/edit_apartment" method="post" enctype="multipart/form-data">
+            <div class="container">
+                {% csrf_token %}
+                <label for="name"><b>Location</b></label>
+                <input type="text" value="{{apartment.location}}" placeholder="BirZeit" name="location" required>
+                <label for="email"><b>City</b></label>
+                <input type="text" value = "{{apartment.city}}" placeholder="Ramallah" name="city" required>
+                <label for="name"><b>Area</b></label>
+                <input type="text" value = "{{apartment.area}}" placeholder="ex -120 m2" name="area" required>
+                <label for="Phone"><b>Cost</b></label>
+                <input style="width: 100%; height: 50px;margin-bottom: 10px;" type="number" value = "{{apartment.cost}}"  placeholder="cost in NIS" name="cost" required>
+                <label for="name"><b>Hall</b></label>
+                <input type="text" placeholder="Yes/No" value = "{{apartment.hall}}" name="hall" required>
+                <label for="email"><b>Kitchen</b></label>
+                <input type="text" placeholder="Yes/No" name="kitchen" value = "{{apartment.kitchen}}" required>
+                <label for="location"><b>Balcony</b></label>
+                <input type="text" placeholder="Yes/No" name="balcony" value = "{{apartment.balcony}}" required>
+                <label for="Phone"><b>Bedrooms</b></label>
+                <input style="width: 100%; height: 50px;margin-bottom: 10px;" type="number" value = "{{apartment.bedrooms}}"  placeholder="enter number of bedroom" name="bedroom" required>
+                <label for="pass"><b>AC</b></label>
+                <input type="text" placeholder="Yes/No" name="AC" value = "{{apartment.AC}}" >
+                <label for= "comment"><b>Description</b></label><br>
+                <textarea style="width: 100%" name="desc"  > {{apartment.desc}}</textarea> <br>
+                <input type="hidden" name = "id" , value="{{apartment.id}}">
+                <input type="hidden" name = "user_id" , value="{{apartment.user.id}}">
+                <button class="btn btn-primary btn-block" type="submit">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{%endblock%}

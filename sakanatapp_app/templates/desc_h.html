@@ -1,0 +1,125 @@
+{%extends 'base.html' %}
+{%load static%}
+{%block body%}
+<div class="w3-container" style="margin-top:1%; margin-left: 10%; margin-right: 10%; margin-bottom: 1%;">
+
+    <h2 style="margin-left:10px; ">Description</h2>
+    <div class="row w3-about-container">
+        <div class="col-md-6 col-sm-12">
+            <img src="{{chalet.img.url}}" width="100%" height="365px;">
+        </div>
+        <div class="col-md-6 col-sm-12 about-text-container">
+            <h3 class="card-title">
+                    <span>
+                        <b>
+                            <h3>NIS : {{chalet.cost}} / day </h3>
+                        </b>
+                    </span>
+                </h3>
+                <p> {{chalet.area}}</p>
+
+                <p class="card-text">{{chalet.desc}}</p>
+                <p>{{chalet.location}}, {{chalet.city}}</p>
+                <hr>
+                <h5 class="card-title">
+                    <span>
+                        <p>
+                            <b>
+                        <h3>Posted by</h3> </b></p>
+                    </span>
+                </h5>
+                <p>{{chalet.user.name}}</p>
+                <p>{{chalet.user.location}}, {{chalet.user.city}}</p>
+                <p style="float: right;"><b>{{chalet.created_at}}</b></p>
+                <p style="float: right;"><a href="/contact_page">report this ad</a></p>
+            </div>
+        </div>
+    <hr>
+    <div class="row w3-about-container">
+        <div class="col-md-6 col-sm-12 about-text-container">
+            <h3 class="card-title"><b>Details </b></h3>
+                <br>
+                <table style="width: 90%; margin-right: 5%;">
+                    <tr>
+                        <td style="width: 25%; height: 40px;">
+                            Type:
+                        </td>
+                        {% if apartment %}
+                        <td style="width: 30%; height: 40px;">
+                        <strong>Apartment</strong> 
+                        </td>
+                        {%else%}
+                        <td style="width: 30%; height: 40px;">
+                            <strong>Chalet</strong>
+                        </td>
+                        {%endif%}
+                        <td style="width: 25%; height: 40px;">
+                            Cost: 
+                        </td>
+                        <td style="width: 25%; height: 40px;">
+                            <strong>{{chalet.cost}} NIS </strong> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%; height: 40px;">
+                            Area:
+                        </td>
+                        <td style="width: 30%; height: 40px;">
+                            {{chalet.area}} .
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%; height: 40px;">
+                            Bedrooms:
+                        </td>
+                        <td style="width: 30%; height: 40px;">
+                            {{chalet.bedrooms}}
+                        </td>
+                        <td style="width: 25%; height: 40px;">
+                            Kitchen:
+                        </td>
+                        <td style="width: 25%; height: 40px;">
+                            {{chalet.kitchen}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%; height: 40px;">
+                            Hall:
+                        </td>
+                        <td style="width: 30%; height: 40px;">
+                            {{chalet.hall}}
+                        </td>
+                        <td style="width: 25%; height: 40px;">
+                            Balcony:
+                        </td>
+                        <td style="width: 25%; height: 40px;">
+                            {{chalet.balcony}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%; height: 40px;">
+                            AC:
+                        </td>
+                        <td style="width: 30%; height: 40px;">
+                            {{chalet.AC}}
+                        </td>
+                        <td style="width: 25%; height: 40px;">
+                            Date posted:
+                        </td>
+                        <td style="width: 25%; height: 40px;">
+                            {{chalet.date}}
+                        </td>
+                    </tr>
+                </table>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <h3 class="card-title"><b>Author's info </b></h3>
+                <p>{{chalet.user.name}}</p>
+                <p><a href="https://www.google.com/maps/place/{{chalet.user.location}}">{{chalet.user.location}}</a> </p>
+                <p>{{chalet.user.email}}</p>
+                <p>Contact no. {{chalet.user.phone_number}}</p>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
